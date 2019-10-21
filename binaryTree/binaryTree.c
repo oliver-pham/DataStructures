@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include <binaryTree.h>
+#include <stdlib.h>
+#include "binaryTree.h"
 
-binaryTree *search(binaryTree *node, int key)
+binaryTree *searchTree(binaryTree *node, int key)
 {
     if (node == NULL) return(NULL);
 
@@ -9,12 +10,46 @@ binaryTree *search(binaryTree *node, int key)
 
     if (key < node->item)
     {
-        return(search(node->left, key));
+        return(searchTree(node->left, key));
     }
     else
     {
-        return(search(node->right, key));
+        return(searchTree(node->right, key));
     }
 }
 
 // Time Complexity: O(h), where h denotes the height of the tree
+
+void insertNode(binaryTree **node, int key, binaryTree *parent)
+{
+    binaryTree *p;
+
+    if (*node == NULL)
+    {
+        p = malloc(sizeof(binaryTree));
+        p->item = key;
+        p->left = p->right = NULL;
+        p->parent = parent;
+        *node = p;
+        return;
+    }
+
+    if (key < (*node)->item)
+    {
+        insertNode(&((*node)->left), key, *node);
+    }
+    else
+    {
+        insertNode(&((*node)->right), key, *node);
+    }
+}
+
+void traverseTree(binaryTree *node)
+{
+    if (node != NULL)
+    {
+        traverseTree(node->left);
+        printf("Item: %d\n", node->item);
+        traverseTree(node->right);
+    }
+}
