@@ -53,3 +53,61 @@ void traverseTree(binaryTree *node)
         traverseTree(node->right);
     }
 }
+
+binaryTree *minimumIterativeSearch(binaryTree *node)
+{
+    binaryTree *min;
+
+    if (node == NULL) return(NULL);
+    min = node;
+    while (min->left != NULL)
+    {
+        min = min->left;
+    }
+    return(min);
+}
+
+binaryTree *minimumRecursiveSearch(binaryTree *node)
+{
+    if (node == NULL)
+    {
+        return(NULL);
+    }
+    else if (node->left != NULL)
+    {
+        return(minimumRecursiveSearch(node->left));
+    }
+    else
+    {
+        return(node);
+    }
+}
+
+binaryTree *maximumIterativeSearch(binaryTree *node)
+{
+    binaryTree *max;
+
+    if (node == NULL) return(NULL);
+    max = node;
+    while (max->right != NULL)
+    {
+        max = max->right;
+    }
+    return(max);
+}
+
+binaryTree *maximumRecursiveSearch(binaryTree *node)
+{
+    if (node == NULL)
+    {
+        return(NULL);
+    }
+    else if (node->right != NULL)
+    {
+        return(maximumRecursiveSearch(node->right));
+    }
+    else
+    {
+        return(node);
+    }
+}
