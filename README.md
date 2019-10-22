@@ -1,4 +1,4 @@
-# DataStructures
+# Data Structures
 ### Data Structures Implementation in C programming language.
 
 References
