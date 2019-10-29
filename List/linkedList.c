@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linkedList.h"
+#include "linkedlist.h"
 
 List *searchList(List *l, int item)
 {

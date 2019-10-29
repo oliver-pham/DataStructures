@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "binaryTree.h"
+#include "binarytree.h"
 
 binaryTree *searchTree(binaryTree *node, int key)
 {

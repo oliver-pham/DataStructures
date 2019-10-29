@@ -1,4 +1,4 @@
-#include "linkedList.c"
+#include "linkedlist.c"
 
 void reverseListIteratively(List **head)
 {
