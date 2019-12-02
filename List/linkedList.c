@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "linkedlist.h"
+
+List *initializeList(int item)
+{
+    List *l;
+
+    l = malloc(sizeof(List));
+    l->item = item;
+    l->next = NULL;
+    return l;
+}
 
 List *searchList(List *l, int item)
 {
@@ -19,12 +30,12 @@ List *searchList(List *l, int item)
 
 void insertList(List **head, int item)
 {
-    List *p; // Temporary pointer
+    List *l;
 
-    p = malloc(sizeof(List));
-    p->item = item;
-    p->next = *head;
-    *head = p;
+    l = malloc(sizeof(List));
+    l->item = item;
+    l->next = *head;
+    *head = l;
     printf("Inserted a list successfully.\n");
 }
 
