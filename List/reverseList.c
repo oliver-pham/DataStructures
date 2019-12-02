@@ -1,4 +1,5 @@
-#include "linkedlist.c"
+#include <stdio.h>
+#include "linkedlist.h"
 
 void reverseListIteratively(List **head)
 {
